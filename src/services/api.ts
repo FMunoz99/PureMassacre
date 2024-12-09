@@ -1,15 +1,16 @@
 // api.ts
 import axios from 'axios';
+import https from 'https';
 
-// Aquí se configura la URL base de tu API (ajusta según tu configuración)
+// Configura Axios para ignorar la validación de certificados en entornos de desarrollo
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api', // Asegúrate de que esta URL sea la correcta
+  baseURL: import.meta.env.VITE_BASE_URL, // La URL base se extrae de las variables de entorno
   headers: {
     'Content-Type': 'application/json',
   },
+  httpsAgent: new https.Agent({
+    rejectUnauthorized: false, // Ignorar validación del certificado
+  }),
 });
 
 export default api;
-
-
-//
