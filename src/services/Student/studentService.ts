@@ -81,7 +81,7 @@ export enum EstadoTarea {
 
 // Servicio para las operaciones relacionadas con Estudiante
 export class EstudianteService {
-  private baseUrl: string = BASE_URL;
+  //private baseUrl: string = BASE_URL;
 
   private getToken() {
     return AuthService.getToken();
